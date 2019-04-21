@@ -6,31 +6,44 @@
 
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6223252732075625",
+            enable_page_level_ads: true
+        });
+    </script>
+
 </head>
 
 <body>
-  <img src="Images/Congress.png" class="PartySymbols">
-   <input id="RadioCongress"  type="radio" name="gender" value="male"> <br>
-   
-   <img src="Images/CPM.png" class="PartySymbols">
+    <img src="Images/Congress.png" id="CongressSymbol" class="PartySymbols">
+    <input id="RadioCongress" type="radio" name="gender" value="male"> <br>
+
+    <img src="Images/CPM.png" id="CPMSymbol" class="PartySymbols">
     <input id="RadioCPM" type="radio" name="gender" value="female"> <br>
-    
-    <img src="Images/BJP.png" class="PartySymbols">
-    <input id="RadioBJP"  type="radio" name="gender" value="other"> <br>
-    
-  
-    
+
+    <img src="Images/BJP.png" id="BJPSymbol" class="PartySymbols">
+    <input id="RadioBJP" type="radio" name="gender" value="other"> <br>
+
+
+
     <div id="Results">
-    <h2>Congress</h2>
-    <div id="CongressBar">0</div>
-    <h2>CPM</h2>
-    <div id="CPMBar">0</div>
-    <h2>BJP</h2>
-    <div id="BJPBar">0</div>
+        <h2>Congress</h2>
+        <div id="CongressBar">0%</div>
+        <h2>CPM</h2>
+        <div id="CPMBar">0%</div>
+        <h2>BJP</h2>
+        <div id="BJPBar">0%</div>
     </div>
     <center>
-    <input type=button id="SubmitVoteBtn" value="VOTE">
+        <input type=button id="SubmitVoteBtn" value="VOTE">
     </center>
+    <div id="textbox">
+        <p class="alignleft">FonePlus</p>
+        <p class="alignright">SeekerShabil@gmail.com</p>
+    </div>
 </body>
 <script src="firebase.js"></script>
 <script src="script.js"></script>

@@ -23,29 +23,26 @@ BtnSubmitVote.addEventListener("click", SubmitVote)
 function SubmitVote() {
     if (RadioCongress.checked == true) {
         VoteCongress()
-    }
-    else if (RadioCPM.checked == true) {
+    } else if (RadioCPM.checked == true) {
         VoteCPM()
-    }
-    else if (RadioBJP.checked == true) {
+    } else if (RadioBJP.checked == true) {
         VoteBJP()
+    } else {
+        alert("Choose a party to vote")
     }
-else {
-    alert("Choose a party to vote")
-}
 
 }
 
 //hide voting optons(buttons) and show voting percentage
 function Voted() {
-    document.getElementById("BtnCongress").style.display = "none"
-    document.getElementById("BtnCPM").style.display = "none"
-    document.getElementById("BtnBJP").style.display = "none"
-    
+    document.getElementById("CongressSymbol").style.display = "none"
+    document.getElementById("CPMSymbol").style.display = "none"
+    document.getElementById("BJPSymbol").style.display = "none"
+
     RadioCongress.style.display = "none"
     RadioCPM.style.display = "none"
     RadioBJP.style.display = "none"
-  document.getElementById("SubmitVoteBtn").style.display = "none"
+    document.getElementById("SubmitVoteBtn").style.display = "none"
 
     document.getElementById("Results").style.display = "block"
 

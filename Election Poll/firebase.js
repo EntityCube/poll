@@ -18,6 +18,14 @@ var config = {
 };
 firebase.initializeApp(config);
 
+//databse location for view count
+dbSeenCount = firebase.database().ref().child('SeenCount');
+dbSeenCount.on('value', function (SeenCount) {
+    seen = SeenCount.numChildren();
+    console.log("seen by")
+    console.log(seen);
+})
+dbSeenCount.push(navigator.appCodeName)
 
 //databse location for Congress and setting current value to html
 dbCongress = firebase.database().ref().child('Congress');
@@ -68,6 +76,7 @@ function processValues() {
 }
 
 function setBars() {
+
     TotalVotes = BJP + CPM + Congress
 
     document.getElementById("CongressBar").innerHTML = Math.ceil(Congress / TotalVotes * 100) + "%";
