@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Poll Kozhikode</title>
+    <title>Kozhikode-Poll</title>
     <link rel="stylesheet" type="text/css" href=style.css>
 
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
@@ -9,16 +9,28 @@
 </head>
 
 <body>
-   <input type=button id=BtnCongress class="VoteButton" value=Congress><br>
-    <input type=button id=BtnCPM class="VoteButton" value=CPM><br>
-    <input type=button id=BtnBJP class="VoteButton" value=BJP><br>
+  <img src="Images/Congress.png" class="PartySymbols">
+   <input id="RadioCongress"  type="radio" name="gender" value="male"> <br>
+   
+   <img src="Images/CPM.png" class="PartySymbols">
+    <input id="RadioCPM" type="radio" name="gender" value="female"> <br>
+    
+    <img src="Images/BJP.png" class="PartySymbols">
+    <input id="RadioBJP"  type="radio" name="gender" value="other"> <br>
+    
+  
     
     <div id="Results">
+    <h2>Congress</h2>
     <div id="CongressBar">0</div>
+    <h2>CPM</h2>
     <div id="CPMBar">0</div>
+    <h2>BJP</h2>
     <div id="BJPBar">0</div>
     </div>
-
+    <center>
+    <input type=button id="SubmitVoteBtn" value="VOTE">
+    </center>
 </body>
 <script src="firebase.js"></script>
 <script src="script.js"></script>

@@ -24,9 +24,9 @@ dbCongress = firebase.database().ref().child('Congress');
 dbCongress.on('value', function (congressVotes) {
 
     Congress = congressVotes.numChildren()
-    
 
-   
+
+
 
     GotCongressValue = true;
 
@@ -38,9 +38,9 @@ dbCPM = firebase.database().ref().child('CPM');
 dbCPM.on('value', function (cpmVotes) {
 
     CPM = cpmVotes.numChildren();
-    
 
-    
+
+
     GotCPMValue = true;
 
     processValues()
@@ -51,7 +51,7 @@ dbBJP = firebase.database().ref().child('BJP');
 dbBJP.on('value', function (bjpVotes) {
 
     BJP = bjpVotes.numChildren();
-    
+
 
 
 
@@ -63,18 +63,18 @@ dbBJP.on('value', function (bjpVotes) {
 //percentify
 function processValues() {
     if (GotBJPValue == true && GotCongressValue == true && GotCPMValue == true) {
-        GotCongressValue = false;
-        GotCPMValue = false;
-        GotBJPValue = false;
-        TotalVotes = BJP+CPM+Congress
-        
-        document.getElementById("CongressBar").innerHTML = Math.ceil(Congress/TotalVotes*100) + "%";
-        document.getElementById("BJPBar").innerHTML = Math.ceil(BJP/TotalVotes*100) + "%";
-        document.getElementById("CPMBar").innerHTML = Math.ceil(CPM/TotalVotes*100) + "%";
-        
-        document.getElementById("CongressBar").style.width = Congress/TotalVotes*100 + "%"
-        document.getElementById("CPMBar").style.width = CPM/TotalVotes*100 + "%"
-        document.getElementById("BJPBar").style.width = BJP/TotalVotes*100 + "%"
-
+        setBars()
     }
+}
+
+function setBars() {
+    TotalVotes = BJP + CPM + Congress
+
+    document.getElementById("CongressBar").innerHTML = Math.ceil(Congress / TotalVotes * 100) + "%";
+    document.getElementById("BJPBar").innerHTML = Math.ceil(BJP / TotalVotes * 100) + "%";
+    document.getElementById("CPMBar").innerHTML = Math.ceil(CPM / TotalVotes * 100) + "%";
+
+    document.getElementById("CongressBar").style.width = Congress / TotalVotes * 100 + "%"
+    document.getElementById("CPMBar").style.width = CPM / TotalVotes * 100 + "%"
+    document.getElementById("BJPBar").style.width = BJP / TotalVotes * 100 + "%"
 }
