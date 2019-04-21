@@ -1,17 +1,23 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Poll Kozhikode</title>
-<link rel="stylesheet" type="text/css" href=style.css>
+    <title>Poll Kozhikode</title>
+    <link rel="stylesheet" type="text/css" href=style.css>
 
-<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>  
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
 </head>
 
 <body>
-    <h1 id=Congress style="color: green">0</h1>   <input type=button id=BtnCongress value=Congress style="background: green"><br>
-    <h1 id=CPM style="color: red">0</h1>        <input type=button id=BtnCPM value=CPM style="background: red"><br>
-    <h1 id=BJP style="color: darkorange">0</h1>        <input type=button id=BtnBJP value=BJP style="background: darkorange"><br>
+   <input type=button id=BtnCongress class="VoteButton" value=Congress><br>
+    <input type=button id=BtnCPM class="VoteButton" value=CPM><br>
+    <input type=button id=BtnBJP class="VoteButton" value=BJP><br>
+    
+    <div id="Results">
+    <div id="CongressBar">0</div>
+    <div id="CPMBar">0</div>
+    <div id="BJPBar">0</div>
+    </div>
 
 </body>
 <script src="firebase.js"></script>
