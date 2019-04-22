@@ -1,7 +1,9 @@
-<!DOCTYPE HTML>
+<!DOCTYPE Html>
 <html>
+
 <head>
-    <title>Kozhikode-Poll</title>
+    <meta charset="UTF-8">
+    <title>Kerala-Poll</title>
     <link rel="stylesheet" type="text/css" href=style.css>
 
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
@@ -18,6 +20,7 @@
 </head>
 
 <body>
+
     <img src="Images/Congress.png" id="CongressSymbol" class="PartySymbols">
     <input id="RadioCongress" type="radio" name="gender" value="male"> <br>
 
@@ -38,14 +41,39 @@
         <div id="BJPBar">0%</div>
     </div>
     <center>
-        <input type=button id="SubmitVoteBtn" value="VOTE">
+        <input type=button id="SubmitVoteBtn" value="Submit">
     </center>
     <div id="textbox">
         <p class="alignleft">FonePlus</p>
         <p class="alignright">SeekerShabil@gmail.com</p>
     </div>
+
 </body>
+<script>
+    if (document.cookie !== "") {
+        document.getElementById("CongressSymbol").style.display = "none";
+        document.getElementById("CPMSymbol").style.display = "none";
+        document.getElementById("BJPSymbol").style.display = "none";
+
+        RadioCongress.style.display = "none";
+        RadioCPM.style.display = "none";
+        RadioBJP.style.display = "none";
+        document.getElementById("SubmitVoteBtn").style.display = "none";
+
+        document.getElementById("Results").style.display = "block";
+    }    
+</script>
 <script src="firebase.js"></script>
 <script src="script.js"></script>
+<script>
+    if (checkCookie() == false) {
+        alert("Please Enable Cookies in your browser and reload the page to continue")
+        document.body.innerText = "Please Enable Cookies in your browser and reload the page to continue"
+    }
+
+
+</script>
+
+
 
 </html>

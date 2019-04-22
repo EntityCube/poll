@@ -1,7 +1,5 @@
 //if user already have voted and loads the page again it will hide the voting options and show the results only
-if (document.cookie !== "") {
-    Voted()
-}
+
 
 //Load all radio button variables
 RadioCongress = document.getElementById("RadioCongress")
@@ -23,10 +21,13 @@ BtnSubmitVote.addEventListener("click", SubmitVote)
 function SubmitVote() {
     if (RadioCongress.checked == true) {
         VoteCongress()
+     
     } else if (RadioCPM.checked == true) {
         VoteCPM()
+     
     } else if (RadioBJP.checked == true) {
         VoteBJP()
+     
     } else {
         alert("Choose a party to vote")
     }
@@ -35,6 +36,7 @@ function SubmitVote() {
 
 //hide voting optons(buttons) and show voting percentage
 function Voted() {
+    
     document.getElementById("CongressSymbol").style.display = "none"
     document.getElementById("CPMSymbol").style.display = "none"
     document.getElementById("BJPSymbol").style.display = "none"
@@ -52,7 +54,8 @@ function Voted() {
 // Add value to Congress in database
 function VoteCongress() {
     if (document.cookie === "") {
-        dbCongress.push(navigator.appCodeName)
+        dbCongress.push(new Date().toLocaleString() + " " + navigator.platform)
+        dbSeenPerson.push(new Date().toLocaleString()+" "+navigator.platform)
         setBars()
         document.cookie = "chance=completed; expires=Thu, 18 Dec 2020 12:00:00 UTC";
     } else {
@@ -63,7 +66,8 @@ function VoteCongress() {
 
 function VoteCPM() {
     if (document.cookie === "") {
-        dbCPM.push(navigator.appCodeName)
+        dbCPM.push(new Date().toLocaleString() + " " + navigator.platform)
+        dbSeenPerson.push(new Date().toLocaleString()+" "+navigator.platform)
         setBars()
         document.cookie = "chance=completed; expires=Thu, 18 Dec 2020 12:00:00 UTC";
     } else {
@@ -74,7 +78,8 @@ function VoteCPM() {
 
 function VoteBJP() {
     if (document.cookie === "") {
-        dbBJP.push(navigator.appCodeName)
+        dbBJP.push(new Date().toLocaleString() + " " + navigator.platform)
+        dbSeenPerson.push(new Date().toLocaleString()+" "+navigator.platform)
         setBars()
         document.cookie = "chance=completed; expires=Thu, 18 Dec 2020 12:00:00 UTC";
     } else {
@@ -85,14 +90,24 @@ function VoteBJP() {
 
 
 
-//sets cookie to restrict users from voting multiple times from same device
+
 function setCookie() {
     document.cookie = "chance" + "=" + "completed" + ";" + "expires=Tue, 30 Jul 2019 07:44:32 GMT" + ";path=/";
 }
 
-//disable restriction and allow user to vote one more time
+
 function deleteCookie() {
     document.cookie = "chance=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 
-//sets diagram
+//Check cookie allowed
+function checkCookie() {
+    // Quick test if browser has cookieEnabled host property
+    if (navigator.cookieEnabled) return true;
+    // Create cookie
+    document.cookie = "cookietest=1";
+    var ret = document.cookie.indexOf("cookietest=") != -1;
+    // Delete cookie
+    document.cookie = "cookietest=1; expires=Thu, 01-Jan-1970 00:00:01 GMT";
+    return ret;
+}

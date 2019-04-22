@@ -18,14 +18,25 @@ var config = {
 };
 firebase.initializeApp(config);
 
+
+//db single view
+dbSeenPerson = firebase.database().ref().child('SeenPerson');
+dbSeenPerson.on('value', function (SeenPerson) {
+    seenPerson = SeenPerson.numChildren();
+    console.log("seen:↓");
+    console.log(seenPerson);
+
+})
+
+
 //databse location for view count
 dbSeenCount = firebase.database().ref().child('SeenCount');
 dbSeenCount.on('value', function (SeenCount) {
     seen = SeenCount.numChildren();
-    console.log("seen by")
+    console.log("page loaded:↓")
     console.log(seen);
 })
-dbSeenCount.push(navigator.appCodeName)
+dbSeenCount.push(new Date().toLocaleString()+" "+navigator.platform)
 
 //databse location for Congress and setting current value to html
 dbCongress = firebase.database().ref().child('Congress');
